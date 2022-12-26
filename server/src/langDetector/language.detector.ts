@@ -1,21 +1,28 @@
-require(`dotenv`).config();
-const detecorExpress = require("express");
+import dotenv from "dotenv";
+import express from "express";
+const router = express.Router();
 const { Translate } = require(`@google-cloud/translate`).v2;
 
-const credentials = JSON.parse(process.env.credentials);
+dotenv.config();
+
+export const credentials = JSON.parse(process.env.credentials as string);
 
 const translate = new Translate({
   credentials: credentials,
   projectId: credentials.project_id,
 });
 
-console.log(translate);
-
 const detectLanguage = async (text: string) => {
   try {
-    const response = await translate.detect(text);
-  } catch (error) {}
+    const response: {}[] = await translate.detect(text);
+    return response[0];
+  } catch (error) {
+    return error;
+  }
 };
-const detectorRouter = detecorExpress.Router();
 
-module.exports = detectorRouter;
+detectLanguage(`kurwa mac`)
+  .then((res) => console.log(`res`, res))
+  .catch((err) => console.log(err.message));
+
+export { router };

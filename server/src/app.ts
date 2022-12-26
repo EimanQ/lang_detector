@@ -1,11 +1,7 @@
-const appExpress = require("express");
-const detector = require(`./langDetector`);
-const app = appExpress();
+import express from "express";
+import { router as detector } from "./langDetector/language.detector";
+const app = express();
 
-app.use(`/detector`, detector);
+app.use("/detector", detector);
 
-appExpress.use((error, request, response, next) => {
-  response.status(500).send(error.message);
-});
-
-module.exports = app;
+export { app };
