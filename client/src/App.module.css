@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1359px;
+  height: 676px;
+  display: flex;
+  background-color: #282c34;
+}
+
+.title {
+  margin: auto;
+  font: 600 50px "Montserrat";
+  color: #fff;
+}
+
+.result{
+  text-align: center;
+  font: 400 25px "Montserrat";
+  color: #fff;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.input {
+  font: 400 12px "Montserrat";
+  color: #fff;
+  border-radius: 25px;
+  padding-left: 15px;
+  width: 275px;
+  height: 30px;
+  outline: none;
+  border: #323741;
+  background-color: #323741;
+
+  transition: filter .5s ease-in-out;
+}
+
+.input:focus {
+  filter: drop-shadow(0px 0px 5px #3f4653);
+}
