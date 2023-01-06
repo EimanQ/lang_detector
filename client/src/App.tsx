@@ -7,7 +7,7 @@ import { LanguageLibrary } from "./context/LanguageLibrary";
 function App() {
   const [textToDetect, setTextToDetect] = useState(``);
   const [detectedLanguage, setDetectedLanguage] = useState(``);
-
+  
   const handleDetect = async (): Promise<void> => {
     try {
       if (!textToDetect.length) throw new Error('The language detector cannot detect the language of an empty input');
