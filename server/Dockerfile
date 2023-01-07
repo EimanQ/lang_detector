@@ -6,6 +6,8 @@ COPY package.json  /index
 
 RUN npm install
 
-EXPOSE 3333
+ENV PORT 3333
+
+EXPOSE $PORT
 
 CMD ["node", "index.ts"]

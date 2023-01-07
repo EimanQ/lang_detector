@@ -12,7 +12,7 @@ const request = async (url: string, method: string, body: any = null, headers: a
         return data;
 
     } catch (error) {
-        return error
+        return error as Error
     }
 
 };
